@@ -2,12 +2,9 @@ package com.fraktalio.restaurant.web.configuration
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
-import org.springframework.messaging.rsocket.RSocketStrategies
-import org.springframework.messaging.rsocket.annotation.support.RSocketMessageHandler
 import org.springframework.security.config.annotation.method.configuration.EnableReactiveMethodSecurity
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
 import org.springframework.security.core.userdetails.User
-import org.springframework.security.messaging.handler.invocation.reactive.AuthenticationPrincipalArgumentResolver
 
 
 @Configuration

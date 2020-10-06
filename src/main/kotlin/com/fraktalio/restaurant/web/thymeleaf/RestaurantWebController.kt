@@ -69,7 +69,7 @@ internal class RestaurantWebController(
         return Mono.just("sse/restaurants-sse")
     }
 
-        @PreAuthorize("hasRole('MANAGER') or hasRole('USER')")
+    @PreAuthorize("hasRole('MANAGER') or hasRole('USER')")
     @GetMapping("/restaurant-options-sse", produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
     fun restaurantOptionsSSE(model: Model): Mono<String> {
         val result: Flux<RestaurantModel> =

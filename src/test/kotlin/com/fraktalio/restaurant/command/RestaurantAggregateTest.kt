@@ -57,7 +57,10 @@ class RestaurantAggregateTest {
         val restaurantCreatedEvent = RestaurantCreatedEvent(name, menu, restaurantId, auditEntry)
 
         val activateRestaurantMenuCommand =
-            ActivateRestaurantMenuCommand(menuId = restaurantCreatedEvent.menu.menuId, targetAggregateIdentifier =  restaurantId)
+            ActivateRestaurantMenuCommand(
+                menuId = restaurantCreatedEvent.menu.menuId,
+                targetAggregateIdentifier = restaurantId
+            )
         val restaurantMenuActivatedEvent =
             RestaurantMenuActivatedEvent(restaurantCreatedEvent.menu.menuId, restaurantId, auditEntry)
 

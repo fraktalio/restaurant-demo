@@ -52,8 +52,7 @@ internal class Restaurant {
                     "Menu is not activated"
                 )
             )
-        }
-        else if (menu.items.stream().map { mi -> mi.id }.collect(Collectors.toList()).containsAll(
+        } else if (menu.items.stream().map { mi -> mi.id }.collect(Collectors.toList()).containsAll(
                 command.orderDetails.lineItems.stream().map { li -> li.menuItemId }.collect(
                     Collectors.toList()
                 )

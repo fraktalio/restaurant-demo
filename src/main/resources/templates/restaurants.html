@@ -42,9 +42,9 @@
                                     Error</small>
                             </div>
                             <div class="form-group" th:each="menuItem, itemStat : *{menuItems}">
-                                <input th:field="*{menuItems[__${itemStat.index}__].id}" />
-                                <input th:field="*{menuItems[__${itemStat.index}__].name}" />
-                                <input th:field="*{menuItems[__${itemStat.index}__].price}" />
+                                <input th:field="*{menuItems[__${itemStat.index}__].id}"/>
+                                <input th:field="*{menuItems[__${itemStat.index}__].name}"/>
+                                <input th:field="*{menuItems[__${itemStat.index}__].price}"/>
                             </div>
                             <input data-toggle="tooltip" data-placement="top"
                                    title="Creates the restaurant with default menu(items)" type="submit" value="Create"

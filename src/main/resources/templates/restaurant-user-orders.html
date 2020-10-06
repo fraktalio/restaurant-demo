@@ -100,13 +100,13 @@
             });
         });
 
-            const restaurantOptionId = document.getElementById("restaurantOptionId");
+        const restaurantOptionId = document.getElementById("restaurantOptionId");
 
-            const restaurant_opts_source = new EventSource("/restaurant-options-sse");
-            restaurant_opts_source.withCredentials = true;
-            restaurant_opts_source.addEventListener("message", function (event) {
-                restaurantOptionId.innerHTML = event.data + restaurantOptionId.innerHTML;
-            });
+        const restaurant_opts_source = new EventSource("/restaurant-options-sse");
+        restaurant_opts_source.withCredentials = true;
+        restaurant_opts_source.addEventListener("message", function (event) {
+            restaurantOptionId.innerHTML = event.data + restaurantOptionId.innerHTML;
+        });
 
     </script>
 </div>

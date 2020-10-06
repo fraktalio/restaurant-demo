@@ -7,8 +7,8 @@ import com.fraktalio.restaurant.query.api.*
 import com.fraktalio.restaurant.query.repository.RestaurantOrderRepository
 import com.fraktalio.restaurant.query.repository.RestaurantRepository
 import com.fraktalio.restaurant.query.repository.model.MenuItemEmbedable
-import com.fraktalio.restaurant.query.repository.model.RestaurantorderEntity
 import com.fraktalio.restaurant.query.repository.model.RestaurantOrderItemEmbedable
+import com.fraktalio.restaurant.query.repository.model.RestaurantorderEntity
 import org.axonframework.config.ProcessingGroup
 import org.axonframework.eventhandling.EventHandler
 import org.axonframework.eventhandling.ResetHandler
