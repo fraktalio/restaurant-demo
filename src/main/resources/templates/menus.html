@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Menus</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row alert alert-warning alert-dismissible fade show">
+                <div class="col-6">
+                    <div class="bg-white alert alert-dismissible fade show">
+                        <img size="45%" class="img-fluid" th:src="@{img/3.jpg}"
+                             alt="event model of restaurant management context 2"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p class="text-muted"><b>Command side</b>: Given `RestaurantCreated` event, when `ActivateMenu`
+                        command is handled, new event `MenuActivated` is published by the command side component.</p>
+                    <p class="text-muted"><b>Query side</b>: Given the event `MenuActivated` a `menu` view is eventually
+                        materialized and refreshed by the query side component.</p>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row mt-1">
+                <div class="col-12">
+                    <div class="card">
+                        <h3 class="card-header alert alert-success">Menus</h3>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Menu Version</th>
+                                <th>Restaurant Id</th>
+                                <th>Menu Items</th>
+                                <th>Actions</th>
+                                <th>Active</th>
+                            </tr>
+                            </thead>
+                            <tbody id="menuTable">
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+
+        const menuTable = document.getElementById("menuTable");
+
+        const restaurants_source = new EventSource("/menus-sse");
+        restaurants_source.withCredentials = true;
+        restaurants_source.addEventListener("message", function (event) {
+            menuTable.innerHTML = event.data + menuTable.innerHTML;
+
+            //remove the duplicates (naive ;))
+            let arr = $("#menuTable tr");
+            $.each(arr, function (i, item) {
+                let currIndex = $("#menuTable tr").eq(i);
+                let matchText = currIndex.children("td").first().text();
+                $(this).nextAll().each(function (i, inItem) {
+                    if (matchText === $(this).children("td").first().text()) {
+                        $(this).remove();
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</div>
+

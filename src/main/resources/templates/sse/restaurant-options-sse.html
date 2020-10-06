@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Restaurants - SEE</title>
+</head>
+<body>
+<select id="restaurantId">
+    <option data-th-each="restaurant : ${restaurants}" th:value="${restaurant.id}" th:text="${restaurant.name}">
+    </option>
+</select>
+</body>

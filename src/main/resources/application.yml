@@ -1,0 +1,65 @@
+server:
+  port: 8080
+
+spring:
+  rsocket:
+    server:
+      transport: websocket
+      mapping-path: /rsocket
+      port: 7000
+  datasource:
+    url: jdbc:h2:mem:restaurant
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    open-in-view: true
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  main:
+    allow-bean-definition-overriding: true
+
+
+axon:
+  metrics:
+    micrometer:
+      dimensional: true
+  serializer:
+    general: xstream
+    messages: xstream
+    events: jackson
+
+restaurant:
+  snapshot-trigger-treshold-restaurant: 200
+  snapshot-trigger-treshold-restaurant-order: 200
+
+management:
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+logging:
+  level:
+    io.rsocket.FrameLogger: DEBUG
+
+info:
+  app:
+    name: @project.name@
+    version: @project.version@
+
+

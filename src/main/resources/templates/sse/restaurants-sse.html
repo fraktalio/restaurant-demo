@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Restaurants - SEE</title>
+</head>
+<body>
+<table id="allRestaurants" class="table table-striped">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="result" data-th-each="restaurant : ${restaurants}">
+        <td>[[${restaurant.id}]]</td>
+        <td>[[${restaurant.name}]]</td>
+    </tr>
+    </tbody>
+</table>
+</body>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Restaurant orders</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row alert alert-warning alert-dismissible fade show">
+                <div class="col-6">
+                    <div class="bg-white alert alert-dismissible fade show">
+                        <img class="img-fluid" th:src="@{img/6.jpg}"
+                             alt="event model of restaurant management context"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p class="text-muted"><b>Command side</b>: Given `RestaurantCreated` and `RestaurantOrderPlaced`
+                        events, when `MarkRestaurantOrderAsPrepared` command is handled, new event
+                        `RestaurantOrderPrepared` is published by the command side component.</p>
+                    <p class="text-muted"><b>Query side</b>: Given the event `RestaurantOrderPrepared` a `restaurant
+                        order` view is eventually materialized and refreshed by the query side component.</p>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row mt-1">
+                <div class="col-12">
+                    <div class="card">
+                        <h3 class="card-header alert alert-success">Restaurant orders</h3>
+                        <table class="table table-striped card-body">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>State</th>
+                                <th>Restaurant Id</th>
+                                <th>Items</th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody id="restaurantOrderTable">
+
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const restaurantOrderTable = document.getElementById("restaurantOrderTable");
+        const restaurants_source = new EventSource("/restaurant-orders-sse");
+        restaurants_source.withCredentials = true;
+        restaurants_source.addEventListener("message", function (event) {
+            restaurantOrderTable.innerHTML = event.data + restaurantOrderTable.innerHTML;
+
+            //remove the duplicates (naive ;))
+            let arr = $("#restaurantOrderTable tr");
+            $.each(arr, function (i, item) {
+                let currIndex = $("#restaurantOrderTable tr").eq(i);
+                let matchText = currIndex.children("td").first().text();
+                $(this).nextAll().each(function (i, inItem) {
+                    if (matchText === $(this).children("td").first().text()) {
+                        $(this).remove();
+                    }
+                });
+            });
+        });
+    </script>
+</div>
+

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <title>Restaurants</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row alert alert-warning alert-dismissible fade show">
+                <div class="col-6">
+                    <div class="bg-white alert alert-dismissible fade show">
+                        <img class="img-fluid" th:src="@{img/1.jpg}"
+                             alt="event model of restaurant management context"/>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <p class="text-muted"><b>Command side</b>: Given no previous events, when `CreateRestaurant` command
+                        is handled, new event `RestaurantCreated` is published by the command side component.</p>
+                    <p class="text-muted"><b>Query side</b>: Given the event `RestaurantCreated` a `restaurant` view is
+                        eventually materialized and refreshed by the query side component.</p>
+                </div>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="row mt-1">
+                <div class="col-12">
+                    <div class="card">
+                        <h3 class="card-header alert alert-primary">Create Restaurant</h3>
+                        <form class="card-body" th:action="@{/restaurants}" th:object="${createRestaurantRequest}"
+                              method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" th:field="*{name}" id="name" placeholder="Name"
+                                       class="form-control"/>
+                                <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger">Name
+                                    Error</small>
+                            </div>
+                            <div class="form-group" th:each="menuItem, itemStat : *{menuItems}">
+                                <input th:field="*{menuItems[__${itemStat.index}__].id}" />
+                                <input th:field="*{menuItems[__${itemStat.index}__].name}" />
+                                <input th:field="*{menuItems[__${itemStat.index}__].price}" />
+                            </div>
+                            <input data-toggle="tooltip" data-placement="top"
+                                   title="Creates the restaurant with default menu(items)" type="submit" value="Create"
+                                   class="btn btn-primary"/>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-1">
+                <div class="col-12">
+                    <div class="card">
+                        <h3 class="card-header alert alert-success">Restaurants</h3>
+                        <table class="table table-striped card-body">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Name</th>
+                            </tr>
+                            </thead>
+                            <tbody id="restaurantTable">
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+
+        const restaurantTable = document.getElementById("restaurantTable");
+
+        const restaurants_source = new EventSource("/restaurants-sse");
+        restaurants_source.withCredentials = true;
+        restaurants_source.addEventListener("message", function (event) {
+            restaurantTable.innerHTML = event.data + restaurantTable.innerHTML;
+
+            //remove the duplicates (naive ;))
+            let arr = $("#restaurantTable tr");
+            $.each(arr, function (i, item) {
+                let currIndex = $("#restaurantTable tr").eq(i);
+                let matchText = currIndex.children("td").first().text();
+                $(this).nextAll().each(function (i, inItem) {
+                    if (matchText === $(this).children("td").first().text()) {
+                        $(this).remove();
+                    }
+                });
+            });
+        });
+
+
+    </script>
+</div>
+
