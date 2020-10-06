@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config-demo-restaurant
+  labels:
+    app: postgres-restaurant
+data:
+  POSTGRES_DB: restaurant
+  POSTGRES_USER: demouser
+  POSTGRES_PASSWORD: thepassword

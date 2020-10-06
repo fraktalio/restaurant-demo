@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-restaurant
+spec:
+  serviceName: "postgres-restaurant"
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-restaurant
+  template:
+    metadata:
+      labels:
+        app: postgres-restaurant
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:latest
+          envFrom:
+            - configMapRef:
+                name: postgres-config-demo-restaurant
+          ports:
+            - containerPort: 5432
+              name: postgredb
