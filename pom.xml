@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <kotlin.version>1.3.72</kotlin.version>
+        <kotlin.version>1.4.10</kotlin.version>
         <axon.version>4.4.2</axon.version>
         <testcontainers.version>1.14.3</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
