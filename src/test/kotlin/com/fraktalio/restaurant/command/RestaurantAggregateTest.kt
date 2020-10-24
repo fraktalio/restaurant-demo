@@ -1,5 +1,6 @@
 package com.fraktalio.restaurant.command
 
+import com.fraktalio.api.AuditEntry
 import com.fraktalio.restaurant.command.api.*
 import com.fraktalio.restaurant.web.configuration.LoggingReactorMessageDispatchInterceptor
 import com.fraktalio.restaurant.web.configuration.SpringSecurityReactorMessageDispatchInterceptor
@@ -13,7 +14,8 @@ import java.util.*
 class RestaurantAggregateTest {
 
     private lateinit var fixture: FixtureConfiguration<Restaurant>
-    private val auditEntry: AuditEntry = AuditEntry()
+    private val auditEntry: AuditEntry =
+        AuditEntry()
     private val orderId: RestaurantOrderId = RestaurantOrderId()
     private val restaurantId: RestaurantId = RestaurantId()
     private val lineItem: RestaurantOrderLineItem = RestaurantOrderLineItem(1, "menuItemId", "name")

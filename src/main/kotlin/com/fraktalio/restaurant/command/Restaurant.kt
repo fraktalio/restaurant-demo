@@ -1,5 +1,6 @@
 package com.fraktalio.restaurant.command
 
+import com.fraktalio.api.AuditEntry
 import com.fraktalio.restaurant.command.api.*
 import org.axonframework.commandhandling.CommandHandler
 import org.axonframework.eventsourcing.EventSourcingHandler

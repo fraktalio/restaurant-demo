@@ -1,7 +1,7 @@
 package com.fraktalio.restaurant.web.configuration
 
 import com.fraktalio.restaurant.command.api.ANONYMOUS
-import com.fraktalio.restaurant.command.api.AuditEntry
+import com.fraktalio.api.AuditEntry
 import org.axonframework.extensions.reactor.messaging.ReactorMessageDispatchInterceptor
 import org.axonframework.messaging.Message
 import org.springframework.security.authentication.AnonymousAuthenticationToken
@@ -34,7 +34,7 @@ class SpringSecurityReactorMessageDispatchInterceptor<M : Message<*>> :
                                 "auditEntry",
                                 AuditEntry(
                                     who = if (authentication.principal is User) (authentication.principal as User).username else authentication.principal.toString(),
-                                    authorities = authentication.authorities.map { i -> i.authority })
+                                    auth = authentication.authorities.map { i -> i.authority })
                             )
                         )
                     ) as M

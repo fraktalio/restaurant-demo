@@ -1,5 +1,6 @@
 package com.fraktalio.restaurant.query
 
+import com.fraktalio.api.AuditEntry
 import com.fraktalio.restaurant.command.api.*
 import com.fraktalio.restaurant.query.api.FindAllMenusQuery
 import com.fraktalio.restaurant.query.api.FindMenuQuery

@@ -1,5 +1,6 @@
 package com.fraktalio.restaurant.command.api
 
+import com.fraktalio.api.AuditEntry
 import java.io.Serializable
 import java.util.*
 
