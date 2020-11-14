@@ -48,7 +48,7 @@ abstract class AbstractRsocketIntegrationTest {
         @JvmStatic
         @AfterAll
         fun tearDownOnce() {
-            requester.rsocket().dispose()
+            requester.rsocket()?.dispose()
         }
 
         internal class ClientHandler {
