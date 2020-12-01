@@ -42,7 +42,7 @@ spec:
             httpGet:
               port: gui
               path: /actuator/info
-            initialDelaySeconds: 60
+            initialDelaySeconds: 30
             periodSeconds: 5
             timeoutSeconds: 1
 #  volumeClaimTemplates:
