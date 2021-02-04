@@ -1,6 +1,8 @@
 server:
   port: 8080
 spring:
+  flyway:
+    locations: classpath:db/migration/{vendor}
   application:
     name: restaurant-demo
   rsocket:
@@ -12,17 +14,11 @@ spring:
     url: jdbc:h2:mem:restaurant
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.H2Dialect
     open-in-view: true
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-      settings:
-        web-allow-others: true
   main:
     allow-bean-definition-overriding: true
 
