@@ -2,6 +2,8 @@ package com.fraktalio.restaurant.command.configuration
 
 import com.fraktalio.restaurant.web.configuration.Logging
 import org.axonframework.commandhandling.CommandBus
+import org.axonframework.commandhandling.DuplicateCommandHandlerResolution
+import org.axonframework.commandhandling.DuplicateCommandHandlerResolver
 import org.axonframework.common.caching.Cache
 import org.axonframework.common.caching.WeakReferenceCache
 import org.axonframework.config.EventProcessingConfigurer
@@ -70,4 +72,17 @@ internal class RestaurantCommandConfiguration :
             restaurantProperties.snapshotTriggerTresholdRestaurantOrder
         )
 
+    /***************************************************************************/
+    /* Duplicate command handler configured to fail on duplicate registrations */
+
+    /* Command is always routed to a single destination.
+    This means that during the registration of a command handler within a given JVM,
+    a second registration of an identical command handler method should be dealt with in a desirable manner.
+
+    By default, the LoggingDuplicateCommandHandlerResolver is used, which will log a warning and returns the candidate handler.*/
+
+    /***************************************************************************/
+    @Bean
+    fun duplicateCommandHandlerResolver(): DuplicateCommandHandlerResolver =
+        DuplicateCommandHandlerResolution.rejectDuplicates()
 }
