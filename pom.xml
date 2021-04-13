@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <kotlin.version>1.4.31</kotlin.version>
+        <kotlin.version>1.4.32</kotlin.version>
         <axon.version>4.5</axon.version>
         <axon-reactor.version>4.4.2</axon-reactor.version>
         <testcontainers.version>1.15.2</testcontainers.version>
