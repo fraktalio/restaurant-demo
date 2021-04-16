@@ -19,7 +19,7 @@
         <kotlin.version>1.4.32</kotlin.version>
         <axon.version>4.5</axon.version>
         <axon-reactor.version>4.5</axon-reactor.version>
-        <testcontainers.version>1.15.2</testcontainers.version>
+        <testcontainers.version>1.15.3</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
 
