@@ -59,5 +59,3 @@ info:
     name: @project.name@
     version: @project.version@
 
-
-axon
