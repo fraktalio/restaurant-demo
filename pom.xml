@@ -18,10 +18,21 @@
         <java.version>11</java.version>
         <kotlin.version>1.5.10</kotlin.version>
         <axon.version>4.5.2</axon.version>
-        <axon-reactor.version>4.5</axon-reactor.version>
         <testcontainers.version>1.15.3</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.axonframework</groupId>
+                <artifactId>axon-bom</artifactId>
+                <version>${axon.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
 
@@ -153,28 +164,23 @@
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-spring-boot-starter</artifactId>
-            <version>${axon.version}</version>
         </dependency>
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-micrometer</artifactId>
-            <version>${axon.version}</version>
         </dependency>
         <dependency>
             <groupId>org.axonframework</groupId>
             <artifactId>axon-test</artifactId>
-            <version>${axon.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.axonframework.extensions.reactor</groupId>
             <artifactId>axon-reactor-spring-boot-starter</artifactId>
-            <version>${axon-reactor.version}</version>
         </dependency>
         <dependency>
             <groupId>org.axonframework.extensions.tracing</groupId>
             <artifactId>axon-tracing-spring-boot-starter</artifactId>
-            <version>4.5</version>
         </dependency>
 
         <!-- Web jars -->
