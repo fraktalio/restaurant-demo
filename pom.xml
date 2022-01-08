@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.1</version>
+        <version>2.6.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fraktalio</groupId>
@@ -16,9 +16,9 @@
 
     <properties>
         <java.version>11</java.version>
-        <kotlin.version>1.5.10</kotlin.version>
-        <axon.version>4.5.2</axon.version>
-        <testcontainers.version>1.15.3</testcontainers.version>
+        <kotlin.version>1.6.10</kotlin.version>
+        <axon.version>4.5.10</axon.version>
+        <testcontainers.version>1.16.2</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
 

@@ -21,7 +21,7 @@ spring:
     open-in-view: true
   main:
     allow-bean-definition-overriding: true
-
+    allow-circular-references: true
 
 axon:
   metrics:
