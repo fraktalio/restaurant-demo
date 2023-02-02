@@ -4,7 +4,7 @@ import io.rsocket.core.RSocketConnector
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.BeforeAll
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.rsocket.context.LocalRSocketServerPort
+import org.springframework.boot.test.rsocket.server.LocalRSocketServerPort
 import org.springframework.messaging.handler.annotation.MessageMapping
 import org.springframework.messaging.rsocket.RSocketRequester
 import org.springframework.messaging.rsocket.RSocketStrategies

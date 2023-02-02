@@ -9,7 +9,6 @@ import org.axonframework.test.aggregate.FixtureConfiguration
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.math.BigDecimal
-import java.util.*
 
 class RestaurantAggregateTest {
 

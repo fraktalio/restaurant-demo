@@ -1,8 +1,8 @@
 package com.fraktalio.restaurant.query.repository.model
 
-import javax.persistence.ElementCollection
-import javax.persistence.Entity
-import javax.persistence.Id
+import jakarta.persistence.ElementCollection
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
 
 @Entity
 internal data class MenuEntity(

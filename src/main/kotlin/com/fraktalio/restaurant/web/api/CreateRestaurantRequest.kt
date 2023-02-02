@@ -1,7 +1,7 @@
 package com.fraktalio.restaurant.web.api
 
+import jakarta.validation.constraints.NotBlank
 import java.math.BigDecimal
-import javax.validation.constraints.NotBlank
 
 /**
  * A request for creating a Restaurant
