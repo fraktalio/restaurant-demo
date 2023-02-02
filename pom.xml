@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.5</version>
+        <version>3.0.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.fraktalio</groupId>
@@ -15,9 +15,9 @@
     <description>Restaurant Management System - Demo</description>
 
     <properties>
-        <java.version>11</java.version>
-        <kotlin.version>1.7.22</kotlin.version>
-        <axon.version>4.6.2</axon.version>
+        <java.version>17</java.version>
+        <kotlin.version>1.8.0</kotlin.version>
+        <axon.version>4.7.0</axon.version>
         <testcontainers.version>1.17.5</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
@@ -99,7 +99,7 @@
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-<!--            <scope>runtime</scope>-->
+            <!--            <scope>runtime</scope>-->
         </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
@@ -178,10 +178,6 @@
             <groupId>org.axonframework.extensions.reactor</groupId>
             <artifactId>axon-reactor-spring-boot-starter</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.axonframework.extensions.tracing</groupId>
-            <artifactId>axon-tracing-spring-boot-starter</artifactId>
-        </dependency>
 
         <!-- Web jars -->
         <dependency>
@@ -249,7 +245,7 @@
                         <plugin>spring</plugin>
                         <plugin>jpa</plugin>
                     </compilerPlugins>
-                    <jvmTarget>11</jvmTarget>
+                    <jvmTarget>17</jvmTarget>
                 </configuration>
                 <dependencies>
                     <dependency>

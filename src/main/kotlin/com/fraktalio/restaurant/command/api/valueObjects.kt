@@ -1,10 +1,10 @@
 package com.fraktalio.restaurant.command.api
 
 import com.fraktalio.restaurant.command.RestaurantMenuCuisine
+import jakarta.validation.Valid
+import jakarta.validation.constraints.NotEmpty
 import java.math.BigDecimal
 import java.util.*
-import javax.validation.Valid
-import javax.validation.constraints.NotEmpty
 
 data class MenuItemVO(val id: String, val name: String, val price: Money)
 

@@ -1,7 +1,7 @@
 package com.fraktalio.restaurant.web.configuration
 
-import com.fraktalio.restaurant.command.api.ANONYMOUS
 import com.fraktalio.api.AuditEntry
+import com.fraktalio.restaurant.command.api.ANONYMOUS
 import org.axonframework.extensions.reactor.messaging.ReactorMessageDispatchInterceptor
 import org.axonframework.messaging.Message
 import org.springframework.security.authentication.AnonymousAuthenticationToken

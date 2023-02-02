@@ -1,8 +1,8 @@
 package com.fraktalio.restaurant.command.api
 
+import jakarta.validation.Valid
 import org.axonframework.modelling.command.TargetAggregateIdentifier
 import java.util.*
-import javax.validation.Valid
 
 
 abstract class RestaurantCommand(

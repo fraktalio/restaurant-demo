@@ -2,7 +2,7 @@ package com.fraktalio.restaurant.query.repository.model
 
 
 import com.fraktalio.restaurant.query.api.RestaurantOrderState
-import javax.persistence.*
+import jakarta.persistence.*
 
 @Entity
 internal data class RestaurantorderEntity(

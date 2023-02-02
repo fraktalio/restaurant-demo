@@ -4,6 +4,7 @@ import com.fraktalio.restaurant.command.api.*
 import com.fraktalio.restaurant.query.api.FindAllRestaurantsQuery
 import com.fraktalio.restaurant.query.api.RestaurantModel
 import com.fraktalio.restaurant.web.api.CreateRestaurantRequest
+import jakarta.validation.Valid
 import org.axonframework.extensions.reactor.commandhandling.gateway.ReactorCommandGateway
 import org.axonframework.extensions.reactor.queryhandling.gateway.ReactorQueryGateway
 import org.springframework.http.MediaType
@@ -14,10 +15,9 @@ import org.springframework.validation.BindingResult
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.ModelAttribute
 import org.springframework.web.bind.annotation.PostMapping
-import org.thymeleaf.spring5.context.webflux.ReactiveDataDriverContextVariable
+import org.thymeleaf.spring6.context.webflux.ReactiveDataDriverContextVariable
 import reactor.core.publisher.Flux
 import reactor.core.publisher.Mono
-import javax.validation.Valid
 
 
 @Controller
