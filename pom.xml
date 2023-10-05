@@ -18,7 +18,7 @@
         <java.version>17</java.version>
         <axon.version>4.8.2</axon.version>
         <kotlin.version>1.8.22</kotlin.version>
-        <testcontainers.version>1.18.3</testcontainers.version>
+        <testcontainers.version>1.19.1</testcontainers.version>
         <skipIntegrationTests>true</skipIntegrationTests>
     </properties>
 
